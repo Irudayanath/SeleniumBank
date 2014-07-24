@@ -1,0 +1,70 @@
+package Default;
+
+import org.openqa.selenium.By;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterSuite;
+
+public class TestModule1Test {
+  @Test(dataProvider = "dp")
+  public void f(Integer n, String s) {
+	 driver.findElement(By.id("name")).sendKeys(s);
+	 driver.findElement(By.name("password")).sendKeys(n);
+	 
+  }
+  @BeforeMethod
+  public void beforeMethod() {
+	  String Expectedtitle=driver.getPageTitle();
+      String actualTitle="Gmail";
+      assert.equals(Expectedtitle,actual);
+      
+  }
+
+  @AfterMethod
+  public void afterMethod() {
+	  driver.navigate.to.back();
+  }
+
+
+  @DataProvider
+  public Object[][] dp() {
+    return new Object[][] {
+      new Object[] { 1, "a" },
+      new Object[] { 2, "b" },
+    };
+  }
+  @BeforeClass
+  public void beforeClass() {
+  Webdriver driver=new FireFoxDriver();
+  driver.get("https://www.gmail.com");
+  }
+
+  @AfterClass
+  public void afterClass() {
+  }
+
+  @BeforeTest
+  public void beforeTest() {
+	  
+  }
+
+  @AfterTest
+  public void afterTest() {
+  }
+
+  @BeforeSuite
+  public void beforeSuite() {
+  }
+
+  @AfterSuite
+  public void afterSuite() {
+  }
+
+}
